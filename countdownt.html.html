@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown Timer</title>
+    <style>
+      body {
+    background-color: rgb(213, 224, 255);
+  }
+  section {
+    width: 90vw;
+    margin: 80px auto;
+    max-width: 1170px;
+  }
+  img {
+    border-radius: 10px;
+    float: inline-start;
+    margin-right: 10px;
+  }
+  h1 {
+    color: blueviolet;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    padding-top: 20px;
+  }
+  h3 {
+    color: dimgray;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+  
+  .countdown {
+    display: flex;
+  }
+  .countdown div {
+    flex-basis: 100px;
+  }
+
+  .countdown div p {
+    font-size: 51px;
+    margin: 15px;
+    color: aliceblue;
+    padding: 5px;
+  }
+  span {
+    margin: 20px;
+    font-size: 20px;
+  }
+  .days {
+    border: 4px blue solid;
+    margin: 15px;
+    border-radius: 5px;
+    background-color: blue;
+  }
+  .hours {
+    border: 2px blue solid;
+    margin: 15px;
+    border-radius: 5px;
+    background-color: blue;
+  }
+  .minutes {
+    border: 2px blue solid;
+    margin: 15px;
+    border-radius: 5px;
+    background-color: blue;
+  }
+  .seconds {
+    border: 2px blue solid;
+    margin: 15px;
+    border-radius: 5px;
+    background-color: blue;
+    
+  }
+  
+    </style>
+  </head>
+  <body>
+    <section>
+      <img src="https://www.lux.camera/content/images/size/w1000/2023/10/hero-4.jpg" alt="iphone" width="450px" height="400px" />
+      <h1>IPHONE Giveaway</h1>
+      <h3><b>Giveaway Ends On Thursday, March 7, 2024 At 11:30 am</b></h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Delectus, iure deleniti minima explicabo doloremque, unde nobis 
+         repudiandae asperiores laborum, perspiciatis optio assumenda 
+         soluta architecto iste. Repellat soluta odio inventore officiis!
+      </p>
+      <div class="countdown">
+        <div class="days">
+          <p id="days">00</p>
+          <span><b>DAYS</b></span>
+        </div>
+        <div class="hours">
+          <p id="hours">00</p>
+          <span><b>HOURS</b></span>
+        </div>
+        <div class="minutes">
+          <p id="minutes">00</p>
+          <span><b>MINS</b></span>
+        </div>
+        <div class="seconds">
+          <p id="seconds">00</p>
+          <span><b>SEC</b></span>
+        </div>
+      </div>
+    
+    <script>
+      var countDownDate = new Date("March 7,2024 11:30:00").getTime();
+      var x = setInterval(function () {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("days").innerHTML = "00";
+          document.getElementById("hours").innerHTML = "00";
+          document.getElementById("minutes").innerHTML = "00";
+          document.getElementById("seconds").innerHTML = "00";
+        }
+      }, 1000);
+    </script></section>
+  </body>
+</html>
